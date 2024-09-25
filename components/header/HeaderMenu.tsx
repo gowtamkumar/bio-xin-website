@@ -4,8 +4,6 @@ import Link from "next/link";
 import { CiHeart } from "react-icons/ci";
 import { IoBagOutline } from "react-icons/io5";
 export default function HeaderMenu() {
-  // const cart = useSelector(selectCart);
-
   const menu = [
     { key: "home", label: "Home", url: "/" },
     { key: "product", label: "Product", url: "/" },
@@ -23,14 +21,14 @@ export default function HeaderMenu() {
       ))}
 
       <div>
-        <Link href="/profile" className="cursor-pointer md:hidden inline ">
+        <Link href="/" className="cursor-pointer md:hidden inline ">
           <Badge size="default">
             <CiHeart className="font-medium lg:text-lg text-2xl" />
           </Badge>
         </Link>
       </div>
 
-      <Link href="/checkout" className="mt-1 md:hidden inline">
+      <Link href="/" className="mt-1 md:hidden inline">
         <Badge size="default" count={10}>
           <IoBagOutline className="font-medium lg:text-lg text-2xl" />
         </Badge>

@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import StoreProvider from "@/redux/storeProvider";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import 'swiper/css/autoplay'
+import "swiper/css/autoplay";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,11 +23,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body suppressHydrationWarning={true} className={`${inter.className}`}>
-        {/* <AuthProvider session={session}> */}
-          <StoreProvider>
-            <AntdRegistry>{children}</AntdRegistry>
-          </StoreProvider>
-        {/* </AuthProvider> */}
+        <AntdRegistry>{children}</AntdRegistry>
       </body>
     </html>
   );
