@@ -2,9 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "@/redux/storeProvider";
-import { getServerSession } from "next-auth";
-import { authOptions } from "../lib/authOption";
-import AuthProvider from "../lib/SessionProvider";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -24,15 +21,14 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = await getServerSession(authOptions);
   return (
     <html lang="en">
       <body suppressHydrationWarning={true} className={`${inter.className}`}>
-        <AuthProvider session={session}>
+        {/* <AuthProvider session={session}> */}
           <StoreProvider>
             <AntdRegistry>{children}</AntdRegistry>
           </StoreProvider>
-        </AuthProvider>
+        {/* </AuthProvider> */}
       </body>
     </html>
   );
